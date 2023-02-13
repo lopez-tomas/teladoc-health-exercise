@@ -14,6 +14,11 @@ const notSameAccountOfNumbers: string[][] = [
   ["", "12.34", "12.34"]
 ];
 
+const invalidNumbers: string[][] = [
+  ["abc def ghi", "11 22 33", "a1b1c d1e1f g1h1i"],
+  ["1a3 4b6 7c9", "11 22 33", "1a14 4b28 71c32"]
+];
+
 describe('addNumbers', () => {
   it.each(numbers)('\"%s\" + \"%s\" = \"%s\"', (a, b, expected) => {
     expect(addNumbers(a, b)).toEqual(expected)
@@ -23,5 +28,11 @@ describe('addNumbers', () => {
 describe('same account of numbers', () => {
   it.each(notSameAccountOfNumbers)('\"%s\" + \"%s\" = \"%s\"', (a, b, expected) => {
     expect(addNumbers(a, b)).not.toBe(expected)
+  });
+});
+
+describe('not a number', () => {
+  it.each(invalidNumbers)('\"%s\" + \"%s\" = \"%s\"', (a, b, expected) => {
+    expect(addNumbers(a, b)).not.toBe(expected);
   });
 });
