@@ -1,21 +1,21 @@
-#Teladoc Health Exercise
+# Teladoc Health Exercise
 Exercise proposed by **Teladoc Health**. Technologies: **Node**, **TypeScript** & **Jest**.
 
-##Steps:
+### Steps:
 
-###1. Clone this repository
+#### 1. Clone this repository
 ```bash
-  git clone https://github.com/
+git clone https://github.com/lopez-tomas/teladoc-health-exercise.git
 ```
-###2. Install dependencies
+#### 2. Install dependencies
 ```bash
-  npm install
+npm install
 ```
-###3. Compile Typescript
+#### 3. Compile Typescript
 ```bash
-  npx tsc
+npx tsc
 ```
-###4. Run test
+#### 4. Run test
 ```bash
-  npm test
+npm test
 ```
