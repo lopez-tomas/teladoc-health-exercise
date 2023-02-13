@@ -1,3 +1,8 @@
+const checkRegex = (number: string): boolean => {
+  const regexp = /^[0-9]*\.?[0-9]*$/;
+  return regexp.test(number);
+}
+
 const addStrings = (numberA: string, numberB: string): string => {
   let numA: string = numberA;
   let numB: string = numberB;
@@ -17,6 +22,8 @@ const addStrings = (numberA: string, numberB: string): string => {
   let j: number = numB.length - 1;
   let carry: number = 0;
   let result: (number | string)[] = [];
+
+  if (!checkRegex(numA) || !checkRegex(numB)) return '';
 
   while(i > -1 || j > -1) { // loop until both numbers have been processed
     if (numA.charAt(i) !== '.' && numB.charAt(j) !== '.') {
@@ -50,15 +57,7 @@ const addNumbers = (numbersA: string, numbersB: string): string => {
     result += `${addStrings(splitA[i], splitB[i])} `;
   }
 
-  return result.substring(0, result.length - 1);
+  return result.trim();
 }
-
-// const result1 = addNumbers("123 456 789", "11 22 33");
-// const result2 = addNumbers("123456789012345678901 23456789", "12345678 234567890123456789012");
-// const result3 = addNumbers("1234567.8901 2.345", "12.34 2345678901.2");
-
-// console.log('result1:\t', result1, '\t', result1 === "134 478 822");
-// console.log('\nresult2:\t', result2, '\t', result2 === "123456789012358024579 234567890123480245801");
-// console.log('\nresult3:\t', result3, '\t', result3 === "1234580.2301 2345678903.545");
 
 export default addNumbers;
