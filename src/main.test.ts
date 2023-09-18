@@ -27,12 +27,16 @@ describe('addNumbers', () => {
 
 describe('same account of numbers', () => {
   it.each(notSameAccountOfNumbers)('\"%s\" + \"%s\" = \"%s\"', (a, b, expected) => {
-    expect(addNumbers(a, b)).not.toBe(expected)
+    // expect(addNumbers(a, b)).not.toBe(expected)
+    expect(() => { addNumbers(a, b) }).toThrow('NUMBER QUANTITIES ERROR');
   });
 });
 
 describe('not a number', () => {
   it.each(invalidNumbers)('\"%s\" + \"%s\" = \"%s\"', (a, b, expected) => {
-    expect(addNumbers(a, b)).not.toBe(expected);
+    // expect(addNumbers(a, b)).not.toBe(expected);
+    expect(() => { addNumbers(a, b) }).toThrow('INVALID NUMBERS ERROR');
   });
 });
+
+// https://stackoverflow.com/questions/46042613/how-to-test-the-type-of-a-thrown-exception-in-jest

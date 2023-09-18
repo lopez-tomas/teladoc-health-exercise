@@ -23,7 +23,8 @@ const addStrings = (numberA: string, numberB: string): string => {
   let carry: number = 0;
   let result: (number | string)[] = [];
 
-  if (!checkRegex(numA) || !checkRegex(numB)) return '';
+  // if (!checkRegex(numA) || !checkRegex(numB)) return '';
+  if (!checkRegex(numA) || !checkRegex(numB)) throw new Error('INVALID NUMBERS ERROR');
 
   while(i > -1 || j > -1) { // loop until both numbers have been processed
     if (numA.charAt(i) !== '.' && numB.charAt(j) !== '.') {
@@ -51,7 +52,8 @@ const addNumbers = (numbersA: string, numbersB: string): string => {
   const splitB: string[] = numbersB.split(' ');
   let result: string = '';
 
-  if (splitA.length != splitB.length || numbersA === "" || numbersB === "") return result;
+  // if (splitA.length != splitB.length || numbersA === "" || numbersB === "") return result;
+  if (splitA.length != splitB.length || numbersA === "" || numbersB === "") throw new Error('NUMBER QUANTITIES ERROR');
 
   for (let i: number = 0; i < splitA.length; ++i) {
     result += `${addStrings(splitA[i], splitB[i])} `;
@@ -59,5 +61,26 @@ const addNumbers = (numbersA: string, numbersB: string): string => {
 
   return result.trim();
 }
+
+// try {
+//   const result1 = addNumbers("1234567.8901 2.345", "12.34 2345678901.2");
+//   console.log(`\nResult 1:\t${result1}`);
+// } catch (e) {
+//   console.error(e);
+// };
+
+// try {
+//   const result2 = addNumbers("23456789", "12345678 234567890123456789012");
+//   console.log(`\nResult 2:\t${result2}`);
+// } catch (e) {
+//   console.error(e);
+// };
+
+// try {
+//   const result3 = addNumbers("abc def ghi", "11 22 33");
+//   console.log(`\nResult 3:\t${result3}`);
+// } catch (e) {
+//   console.error(e);
+// };
 
 export default addNumbers;
